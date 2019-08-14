@@ -1,7 +1,10 @@
+
+const axios = require('axios');
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get('https://api.github.com/users/kyle-richardson');
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -45,6 +48,31 @@ const followersArray = [];
 </div>
 
 */
+
+function addCard(obj) {
+  //instantiate
+  let topDiv = document.createElement('div');
+  let img = topDiv.appendChild(document.createElement('img'));
+  let cardDiv = topDiv.appendChild(document.createElement('div'));
+  let h3 = cardDiv.appendChild(document.createElement('h3'));
+  let userName = cardDiv.appendChild(document.createElement('p'));
+  let location = cardDiv.appendChild(document.createElement('p'));
+  let profile = cardDiv.appendChild(document.createElement('p'));
+  let anchor = profile.appendChild(document.createElement('a'));
+  let followers = cardDiv.appendChild(document.createElement('p'));
+  let following = cardDiv.appendChild(document.createElement('p'));
+  let bio = cardDiv.appendChild(document.createElement('p'));
+
+  //add classes and attributes
+  topDiv.classList.add('card');
+  cardDiv.classList.add('card-info');
+  h3.classList.add('name');
+  userName.classList.add('username');
+  img.setAttribute('src', `${obj.img}`);
+  anchor.setAttribute('href', `${obj.address}`);
+  
+
+}
 
 /* List of LS Instructors Github username's: 
   tetondan
