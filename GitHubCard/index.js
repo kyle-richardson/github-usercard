@@ -1,10 +1,12 @@
 
-const axios = require('axios');
+// const axios = require('axios');
+// axios.get('https://api.github.com/users/kyle-richardson');
+
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-axios.get('https://api.github.com/users/kyle-richardson');
+
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -48,6 +50,19 @@ const followersArray = [];
 </div>
 
 */
+const kyle = {
+  name: 'Kyle Richardson',
+  location: 'Fort Worth, TX',
+  img: '../assets/githublogo.png',
+  address: 'https://github.com/kyle-richardson',
+  username: 'kyle-richardson',
+  followers: [
+    'bobby',
+    'fred'
+  ],
+  following: 'suzie',
+  bio: 'i live in fort worth.  stuff stuff'
+}
 
 function addCard(obj) {
   //instantiate
@@ -70,10 +85,22 @@ function addCard(obj) {
   userName.classList.add('username');
   img.setAttribute('src', `${obj.img}`);
   anchor.setAttribute('href', `${obj.address}`);
-  
 
+  //add text content
+  h3.textContent = `${obj.name}`;
+  userName.textContent = `${obj.username}`;
+  location.textContent = `Location: ${obj.location}`;
+  profile.textContent = `Profile: `;
+  anchor.textContent = `${obj.address}`;
+  followers.textContent = `Followers: ${obj.followers}`;
+  following.textContent = `Following: ${obj.following}`;
+  bio.textContent = `Bio: ${obj.bio}`;
+
+  return topDiv;
 }
 
+const container = document.querySelector('.container');
+container.appendChild(addCard(kyle));
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
