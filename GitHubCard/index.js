@@ -61,11 +61,13 @@ function addCard(obj) {
   let h3 = cardDiv.appendChild(document.createElement('h3'));
   let userName = cardDiv.appendChild(document.createElement('p'));
   let location = cardDiv.appendChild(document.createElement('p'));
-  let profile = cardDiv.appendChild(document.createElement('p'));
-  let anchor = profile.appendChild(document.createElement('a'));
+  let profile = cardDiv.appendChild(document.createElement('span'));
+  let anchor = cardDiv.appendChild(document.createElement('A'));
   let followers = cardDiv.appendChild(document.createElement('p'));
   let following = cardDiv.appendChild(document.createElement('p'));
+  let repos = cardDiv.appendChild(document.createElement('p'));
   let bio = cardDiv.appendChild(document.createElement('p'));
+  
 
   //add classes and attributes
   topDiv.classList.add('card');
@@ -73,16 +75,18 @@ function addCard(obj) {
   h3.classList.add('name');
   userName.classList.add('username');
   img.setAttribute('src', `${obj.avatar_url}`);
-  anchor.setAttribute('href', `${obj.html_url}`);
+  anchor.href = `${obj.html_url}`;
+ 
 
   //add text content
   h3.textContent = `${obj.name}`;
   userName.textContent = `${obj.login}`;
   location.textContent = `Location: ${obj.location}`;
   profile.textContent = `Profile: `;
-  anchor.textContent = `${obj.html_url}`;
+  anchor.text = `${obj.html_url}`;
   followers.textContent = `Followers: ${obj.followers}`;
   following.textContent = `Following: ${obj.following}`;
+  repos.textContent = `Repositories: ${obj.public_repos}`;
   bio.textContent = `Bio: ${obj.bio}`;
 
   return topDiv;
