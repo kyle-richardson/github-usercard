@@ -5,6 +5,19 @@ const cards = document.querySelector('.cards');
 axios.get(`https://api.github.com/users/kyle-richardson`)
     .then( response => {
         cards.appendChild(addCard(response.data));
+        return axios.get(`https://api.github.com/users/kyle-richardson/followers`);
+    })
+    .then (response => {
+      const myFollowers = response.data.map( ele => ele.login);
+      myFollowers.forEach(ele => {
+        axios.get(`https://api.github.com/users/${ele}`)
+          .then( response => {
+              cards.appendChild(addCard(response.data));
+          })
+          .catch( err => {
+              console.log(err);
+          })
+      })
     })
     .catch( err => {
         console.log(err);
