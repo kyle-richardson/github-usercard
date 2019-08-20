@@ -1,6 +1,12 @@
 
 const container = document.querySelector('.container');
 const cards = document.querySelector('.cards');
+const followersArray = [];
+followersArray.push('tetondan');
+followersArray.push('dustinmyers');
+followersArray.push('justsml'); 
+followersArray.push('luishrd'); 
+followersArray.push('bigknell'); 
 
 axios.get(`https://api.github.com/users/kyle-richardson`)
     .then( response => {
@@ -8,8 +14,8 @@ axios.get(`https://api.github.com/users/kyle-richardson`)
         return axios.get(`https://api.github.com/users/kyle-richardson/followers`);
     })
     .then (response => {
-      const myFollowers = response.data.map( ele => ele.login);
-      myFollowers.forEach(ele => {
+      response.data.forEach(ele => followersArray.push(ele.login));
+      followersArray.forEach(ele => {
         axios.get(`https://api.github.com/users/${ele}`)
           .then( response => {
               cards.appendChild(addCard(response.data));
@@ -22,23 +28,6 @@ axios.get(`https://api.github.com/users/kyle-richardson`)
     .catch( err => {
         console.log(err);
     })
-
-const followersArray = [];
-followersArray.push('tetondan');
-followersArray.push('dustinmyers');
-followersArray.push('justsml'); 
-followersArray.push('luishrd'); 
-followersArray.push('bigknell'); 
-
-followersArray.forEach(ele => {
-  axios.get(`https://api.github.com/users/${ele}`)
-    .then( response => {
-        cards.appendChild(addCard(response.data));
-    })
-    .catch( err => {
-        console.log(err);
-    })
-})
 
 //test component without axios get (local object)
 /*
