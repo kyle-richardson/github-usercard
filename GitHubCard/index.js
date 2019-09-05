@@ -69,6 +69,9 @@ function addCard(obj) {
   h3.textContent = `${obj.name}`;
   userName.textContent = `${obj.login}`;
   location.textContent = `Location: ${obj.location}`;
+  if (obj.location === null) {
+    location.style.display = "none";
+  }
   profile.textContent = `Profile: `;
   anchor.text = `${obj.html_url}`;
   followers.textContent = `Followers: ${obj.followers}`;
