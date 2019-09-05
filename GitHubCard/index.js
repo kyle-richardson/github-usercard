@@ -55,9 +55,7 @@ function addCard(obj) {
   let following = cardDiv.appendChild(document.createElement('p'));
   let repos = cardDiv.appendChild(document.createElement('p'));
   let bio = cardDiv.appendChild(document.createElement('p'));
-
-  //GitHub contributions calendar
-  // GitHubCalendar(cardDiv, obj.login, { responsive: true });
+  
   
   //add classes and attributes
   topDiv.classList.add('card');
@@ -67,7 +65,6 @@ function addCard(obj) {
   img.setAttribute('src', `${obj.avatar_url}`);
   anchor.href = `${obj.html_url}`;
  
-
   //add text content
   h3.textContent = `${obj.name}`;
   userName.textContent = `${obj.login}`;
@@ -78,9 +75,11 @@ function addCard(obj) {
   following.textContent = `Following: ${obj.following}`;
   repos.textContent = `Repositories: ${obj.public_repos}`;
   bio.textContent = `Bio: ${obj.bio}`;
+  if (obj.bio === null) {
+    bio.style.display = "none";
+  }
   
-  
-
   return topDiv;
 }
+
 
