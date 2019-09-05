@@ -1,4 +1,3 @@
-
 const container = document.querySelector('.container');
 const cards = document.querySelector('.cards');
 const followersArray = [];
@@ -77,6 +76,7 @@ function addCard(obj) {
   following.textContent = `Following: ${obj.following}`;
   repos.textContent = `Repositories: ${obj.public_repos}`;
   bio.textContent = `Bio: ${obj.bio}`;
+  // let contributions = new GitHubCalendar(cardDiv, obj.login);
 
   return topDiv;
 }
