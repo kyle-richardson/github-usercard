@@ -117,6 +117,16 @@ body {
   margin-bottom: 3px;
 }
 
+.card span {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
+.card a {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
 .card .username {
   font-size: 1.8rem;
   font-style: italic;
