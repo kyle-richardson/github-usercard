@@ -7,6 +7,7 @@ followersArray.push('justsml');
 followersArray.push('luishrd'); 
 followersArray.push('bigknell'); 
 
+
 axios.get(`https://api.github.com/users/kyle-richardson`)
     .then( response => {
         cards.appendChild(addCard(response.data));
@@ -56,7 +57,6 @@ function addCard(obj) {
   let repos = cardDiv.appendChild(document.createElement('p'));
   let bio = cardDiv.appendChild(document.createElement('p'));
   
-  
   //add classes and attributes
   topDiv.classList.add('card');
   cardDiv.classList.add('card-info');
@@ -68,21 +68,26 @@ function addCard(obj) {
   //add text content
   h3.textContent = `${obj.name}`;
   userName.textContent = `${obj.login}`;
-  location.textContent = `Location: ${obj.location}`;
-  if (obj.location === null) {
-    location.style.display = "none";
-  }
+  !obj.location 
+    ? location.style.display = "none" 
+    : location.textContent = `Location: ${obj.location}`;
   profile.textContent = `Profile: `;
   anchor.text = `${obj.html_url}`;
   followers.textContent = `Followers: ${obj.followers}`;
   following.textContent = `Following: ${obj.following}`;
   repos.textContent = `Repositories: ${obj.public_repos}`;
-  bio.textContent = `Bio: ${obj.bio}`;
-  if (obj.bio === null) {
-    bio.style.display = "none";
-  }
+  !obj.bio 
+    ? bio.style.display = "none" 
+    : bio.textContent = `Bio: ${obj.bio}`;
+
+    //other styling and DOM additions outside MVP
+    topDiv.classList.add('color-background')
+  
   
   return topDiv;
 }
 
+
+// const textArray = document.querySelectorAll('text')
+// textArray.forEach(ele => console.log(ele))
 
