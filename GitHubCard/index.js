@@ -1,6 +1,8 @@
 const container = document.querySelector('.container');
 const cards = document.querySelector('.cards');
 const followersArray = [];
+
+//pushing individually in case I want to remove this portion later
 followersArray.push('tetondan');
 followersArray.push('dustinmyers');
 followersArray.push('justsml'); 
@@ -8,7 +10,8 @@ followersArray.push('luishrd');
 followersArray.push('bigknell'); 
 
 
-axios.get(`https://api.github.com/users/kyle-richardson`)
+axios
+    .get(`https://api.github.com/users/kyle-richardson`)
     .then( response => {
         cards.appendChild(addCard(response.data));
         return axios.get(`https://api.github.com/users/kyle-richardson/followers`);
@@ -91,3 +94,10 @@ function addCard(obj) {
 // const textArray = document.querySelectorAll('text')
 // textArray.forEach(ele => console.log(ele))
 
+const body = document.querySelector('body')
+
+const colorOne = '#9666a5 0%';
+const colorTwo = '#1fc8db 51%';
+const colorThree = "#2cb5e8 75%";
+
+body.style.background = `linear-gradient(141deg, ${colorOne}, ${colorTwo}, ${colorThree})`
