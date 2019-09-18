@@ -148,3 +148,23 @@ body {
 .color-background {
   background-color: paleturquoise;
 }
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.icons i {
+  font-size: 2.5rem;
+  border: 1px solid #1a2f41;
+  border-radius: 2.5rem;
+  padding: 5px;
+  color: #1a2f41;
+  margin: 10px;
+}
+.icons i:hover {
+  border-color: paleturquoise;
+  color: paleturquoise;
+}
