@@ -83,12 +83,24 @@ body {
   height: 150px;
 }
 
-.header p {
-  font-size: 48px;
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
+.title h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.title h3 {
+  font-size: 1.9rem; 
+}
 .cards {
   width: 100%;
+  margin-top: 30px;
 }
 
 .card {
@@ -117,11 +129,42 @@ body {
   margin-bottom: 3px;
 }
 
+.card span {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
+.card a {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
 .card .username {
   font-size: 1.8rem;
   font-style: italic;
   margin: 3px 0 10px;
 }
 
+.color-background {
+  background-color: paleturquoise;
+}
 
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
 
+.icons i {
+  font-size: 2.5rem;
+  border: 1px solid #1a2f41;
+  border-radius: 2.5rem;
+  padding: 5px;
+  color: #1a2f41;
+  margin: 10px;
+}
+.icons i:hover {
+  border-color: paleturquoise;
+  color: paleturquoise;
+}
